@@ -1,37 +1,32 @@
-import axios from 'axios';
-
-const StepThree = ({ formData, setFormData, prevStep }) => {
-    const handleChange = (e) => {
-        setFormData({ ...formData, stepThree: { ...formData.stepThree, [e.target.name]: e.target.value } });
-    };
-
-    const handleSubmit = async () => {
-        try {
-            const response = await axios.post('http://localhost:5000/api/forms', formData);
-            console.log('Form submitted successfully:', response.data);
-        } catch (error) {
-            console.error('Error submitting form:', error.message);
-        }
-    };
-
+const StepThree = ({ formData, handleChange, handleSubmit }) => {
     return (
         <div className="p-4">
-            <h2 className="text-xl font-semibold">Step 3: Summary</h2>
-            <textarea
-                name="summary"
-                value={formData.stepThree.summary}
+            <h2 className="text-xl font-semibold">Step 3: Personal Details</h2>
+            <input
+                name="age"
+                type="number"
+                value={formData.age}
                 onChange={handleChange}
-                placeholder="Write a summary..."
+                placeholder="Age"
                 className="block w-full p-2 border border-gray-300 rounded mt-2"
-            ></textarea>
-            <div className="mt-4 flex justify-between">
-                <button onClick={prevStep} className="bg-gray-500 text-white p-2 rounded">
-                    Back
-                </button>
-                <button onClick={handleSubmit} className="bg-green-500 text-white p-2 rounded">
-                    Submit
-                </button>
-            </div>
+            />
+            <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                className="block w-full p-2 border border-gray-300 rounded mt-2"
+            >
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <button
+                onClick={handleSubmit}
+                className="mt-4 bg-green-500 text-white p-2 rounded"
+            >
+                Submit
+            </button>
         </div>
     );
 };

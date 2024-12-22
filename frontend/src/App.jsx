@@ -1,12 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import FormWizardPage from './pages/FormWizardPage.jsx';
+import ListPage from "./pages/ListPage.jsx";
+import { ToastContainer } from 'react-toastify'; // Import ToastContainer
+import 'react-toastify/dist/ReactToastify.css';  // Import styles for react-toastify
 
 const App = () => {
     return (
-        <div className="min-h-screen bg-gray-100">
-            <FormWizardPage />
-            {/*<h1 className="min-h-screen bg-gray-500">Kamrul</h1>*/}
-        </div>
+        <Router>
+            <ToastContainer /> {/* Render ToastContainer here */}
+            <Routes>
+                <Route path="/" element={<ListPage />} />
+                <Route path="/form-wizard" element={<FormWizardPage />} />
+            </Routes>
+        </Router>
     );
 };
 

@@ -4,14 +4,17 @@ const formSchema = new mongoose.Schema({
     stepOne: {
         name: { type: String, required: true },
         email: { type: String, required: true },
+        phone: { type: String, required: true },
+        address: { type: String, required: true },
     },
     stepTwo: {
-        address: { type: String, required: true },
-        city: { type: String, required: true },
+        companyName: { type: String, required: true },
+        cardNo: { type: String, required: true },
     },
     stepThree: {
-        summary: { type: String, required: true },
+        age: { type: Number, required: true },
+        gender: { type: String, required: true },
     },
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Form', formSchema);

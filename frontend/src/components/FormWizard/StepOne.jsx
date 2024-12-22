@@ -1,28 +1,35 @@
-const StepOne = ({ formData, setFormData, nextStep }) => {
-    const handleChange = (e) => {
-        setFormData({ ...formData, stepOne: { ...formData.stepOne, [e.target.name]: e.target.value } });
-    };
-
+const StepOne = ({ formData, handleChange }) => {
     return (
         <div className="p-4">
-            <h2 className="text-xl font-semibold">Step 1: Personal Information</h2>
+            <h2 className="text-xl font-semibold">Step 1: User Details</h2>
             <input
                 name="name"
-                value={formData.stepOne.name}
+                value={formData.name}
                 onChange={handleChange}
                 placeholder="Name"
                 className="block w-full p-2 border border-gray-300 rounded mt-2"
             />
             <input
                 name="email"
-                value={formData.stepOne.email}
+                value={formData.email}
                 onChange={handleChange}
                 placeholder="Email"
                 className="block w-full p-2 border border-gray-300 rounded mt-2"
             />
-            <button onClick={nextStep} className="mt-4 bg-blue-500 text-white p-2 rounded">
-                Next
-            </button>
+            <input
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Phone"
+                className="block w-full p-2 border border-gray-300 rounded mt-2"
+            />
+            <textarea
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                placeholder="Address"
+                className="block w-full p-2 border border-gray-300 rounded mt-2"
+            ></textarea>
         </div>
     );
 };
