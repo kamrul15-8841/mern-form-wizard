@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import ProgressBar from '../components/FormWizard/ProgressBar';
-import StepOne from '../components/FormWizard/StepOne';
-import StepTwo from '../components/FormWizard/StepTwo';
-import StepThree from '../components/FormWizard/StepThree';
+import ProgressBar from '../components/FormWizard/ProgressBar.jsx';
+import StepOne from '../components/FormWizard/StepOne.jsx';
+import StepTwo from '../components/FormWizard/StepTwo.jsx';
+import StepThree from '../components/FormWizard/StepThree.jsx';
 
 const FormWizardPage = () => {
     const [step, setStep] = useState(1);
